@@ -6,6 +6,12 @@ app.listen('5000',function(){
 });
 
 app.use(express.json());
+app.use((req,res,next)=>{
+    //do some work
+    console.log('middleware function');
+    next();
+});
+
 app.use(express.static('public'));
 const userRouter = express.Router();
 const authRouter = express.Router();
@@ -19,6 +25,12 @@ userRouter
 .post(createUser)
 .patch(updateUser)
 .delete(deleteUser);
+
+app.use((req,res,next)=>{
+    //do some work
+    console.log('middleware 2nd time');
+    next();
+})
 
 userRouter
 .route('/:id')
