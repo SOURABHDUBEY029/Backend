@@ -12,9 +12,9 @@ app.listen(port,function(){
 });
 //types of request -> get post put delete 
 app.get('/',(req,res)=>{
-    console.log(req.hostname);
-    console.log(req.path);
-    console.log(req.method);
+    // console.log(req.hostname);
+    // console.log(req.path);
+    // console.log(req.method);
     console.log('hello from home page');
     res.send('<h1>hello hi  </h1>');
 });
