@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('public'));
 const userRouter = express.Router();
 const authRouter = express.Router();
-// app.use('/user',userRouter);
+app.use('/user',userRouter);
 app.use('/auth',authRouter);
 
 //mounting in express
@@ -82,6 +82,11 @@ function getUserById(req,res){
     console.log(req.params);
     res.json(req.params.id);
 }
+
+//redirect
+app.get('/user-all',(req,res)=>{
+    res.redirect('/user');
+});
 
 //404 page
 app.use((req,res)=>{
