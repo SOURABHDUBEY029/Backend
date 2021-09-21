@@ -53,7 +53,8 @@ function postForgotPassword(req,res,next){
     let data = req.body;
     console.log('data', data);
     //check if email id is correct - validate
-    next();
+    validateEmail(data.email)
+    //next();
     //check if user exist in db
     // res.json({
     //     message: "data recieved",
@@ -65,10 +66,15 @@ function validateEmail(req,res){
     console.log('validate Email function');
     console.log(req.body);
     //check if email is correct or not
-    res.json({
-        message: "data recieved",
-        data: req.body
-    })
+//     let str = req.body.split(".");
+//     if(str.contains("com")){
+//     res.json({
+//         message: "data recieved",
+//         data: req.body
+//     })
+// }else{
+//     res.alert("Invalid Email");
+// }
 }
 
 function signupUser(req,res){
